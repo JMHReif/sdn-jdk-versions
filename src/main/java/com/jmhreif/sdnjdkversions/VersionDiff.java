@@ -3,6 +3,9 @@ package com.jmhreif.sdnjdkversions;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+
+import java.util.List;
 
 @Node
 public class VersionDiff {
@@ -14,6 +17,9 @@ public class VersionDiff {
     private String fromVersion;
     private String toVendor;
     private String toVersion;
+
+    @Relationship("HAS_DELTA")
+    private List<Delta> deltas;
 
     public VersionDiff(Long neoId, String fromVendor, String fromVersion, String toVendor, String toVersion) {
         this.neoId = neoId;
