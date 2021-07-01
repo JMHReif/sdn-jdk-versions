@@ -1,5 +1,6 @@
-package com.jmhreif.sdnjdkversions;
+package com.jmhreif.sdnjdkversions.domain;
 
+import com.jmhreif.sdnjdkversions.domain.Delta;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
@@ -63,5 +64,13 @@ public class VersionDiff {
 
     public void setToVersion(String toVersion) {
         this.toVersion = toVersion;
+    }
+
+    public List<Delta> getDeltas() {
+        return deltas;
+    }
+
+    public void setDeltas(List<Delta> deltas) {
+        this.deltas = deltas;
     }
 }

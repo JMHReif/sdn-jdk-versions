@@ -1,4 +1,4 @@
-package com.jmhreif.sdnjdkversions;
+package com.jmhreif.sdnjdkversions.domain;
 
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
