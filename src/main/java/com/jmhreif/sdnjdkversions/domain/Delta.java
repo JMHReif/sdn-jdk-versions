@@ -3,6 +3,9 @@ package com.jmhreif.sdnjdkversions.domain;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+
+import java.util.List;
 
 @Node
 public abstract class Delta {
@@ -13,6 +16,9 @@ public abstract class Delta {
     private String name;
     private String docURL;
     private String status;
+
+    @Relationship("HAS_DELTA")
+    private List<Delta> deltas;
 
     public Delta(Long neoId, String name, String docURL, String status) {
         this.neoId = neoId;
@@ -47,5 +53,13 @@ public abstract class Delta {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<Delta> getDeltas() {
+        return deltas;
+    }
+
+    public void setDeltas(List<Delta> deltas) {
+        this.deltas = deltas;
     }
 }
