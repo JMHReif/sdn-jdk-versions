@@ -17,4 +17,7 @@ public class JavaVersionController {
 
     @GetMapping
     public Iterable<JavaVersion> findAllVersions() { return javaVersionRepo.findAll(); }
+
+    @GetMapping("/diffs")
+    Iterable<JavaVersion> findConnectedDiffs() { return javaVersionRepo.findConnectedDiffs(); }
 }

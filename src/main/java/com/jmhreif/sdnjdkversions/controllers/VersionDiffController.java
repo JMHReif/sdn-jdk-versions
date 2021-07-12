@@ -17,8 +17,8 @@ public class VersionDiffController {
     }
 
     @GetMapping("/version")
-    public Iterable<VersionDiff> findDiffsFromVersion(@RequestParam String from) { return versionDiffRepo.findVersionDiffsBy(from); }
+    public Iterable<VersionDiff> findDiffsFromVersion(@RequestParam String version) { return versionDiffRepo.findVersionDiffsBy(version); }
 
     @GetMapping("/between")
-    public VersionDiff findDiffBetween(@RequestParam String from, @RequestParam String to) { return versionDiffRepo.findVersionDiffBetween(from, to); }
+    public VersionDiff findDiffBetween(@RequestParam String newer, @RequestParam String older) { return versionDiffRepo.findVersionDiffBetween(newer, older); }
 }

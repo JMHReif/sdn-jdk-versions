@@ -20,7 +20,10 @@ public class VersionDiff {
     private String toVersion;
 
     @Relationship("HAS_DELTA")
-    private List<Delta> deltas;
+    private List<Package> packages;
+
+    @Relationship("HAS_DELTA")
+    private List<Module> modules;
 
     public VersionDiff(Long neoId, String fromVendor, String fromVersion, String toVendor, String toVersion) {
         this.neoId = neoId;
@@ -38,39 +41,23 @@ public class VersionDiff {
         return fromVendor;
     }
 
-    public void setFromVendor(String fromVendor) {
-        this.fromVendor = fromVendor;
-    }
-
     public String getFromVersion() {
         return fromVersion;
-    }
-
-    public void setFromVersion(String fromVersion) {
-        this.fromVersion = fromVersion;
     }
 
     public String getToVendor() {
         return toVendor;
     }
 
-    public void setToVendor(String toVendor) {
-        this.toVendor = toVendor;
-    }
-
     public String getToVersion() {
         return toVersion;
     }
 
-    public void setToVersion(String toVersion) {
-        this.toVersion = toVersion;
+    public List<Package> getPackages() {
+        return packages;
     }
 
-    public List<Delta> getDeltas() {
-        return deltas;
-    }
-
-    public void setDeltas(List<Delta> deltas) {
-        this.deltas = deltas;
+    public List<Module> getModules() {
+        return modules;
     }
 }
