@@ -21,11 +21,11 @@ public class JavaVersion {
     private LocalDate eolDate;
     private String apiSpec;
 
-    @Relationship("NEWER")
-    private List<VersionDiff> compareOlderList;
+    @Relationship("FROM_NEWER")
+    private List<VersionDiff> olderVersionDiffs;
 
-    @Relationship(value = "OLDER",direction = Relationship.Direction.INCOMING)
-    private List<VersionDiff> compareNewerList;
+    @Relationship(value = "FROM_OLDER",direction = Relationship.Direction.INCOMING)
+    private List<VersionDiff> newerVersionDiffs;
 
     public JavaVersion(String javaVersion, String name, String status, String codeName, LocalDate gaDate, LocalDate eolDate, String apiSpec) {
         this.javaVersion = javaVersion;
@@ -65,11 +65,11 @@ public class JavaVersion {
         return apiSpec;
     }
 
-    public List<VersionDiff> getCompareOlderList() {
-        return compareOlderList;
+    public List<VersionDiff> getOlderVersionDiffs() {
+        return olderVersionDiffs;
     }
 
-    public List<VersionDiff> getCompareNewerList() {
-        return compareNewerList;
+    public List<VersionDiff> getNewerVersionDiffs() {
+        return newerVersionDiffs;
     }
 }

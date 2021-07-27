@@ -1,11 +1,15 @@
 package com.jmhreif.sdnjdkversions.controllers;
 
 import com.jmhreif.sdnjdkversions.domain.JavaVersion;
+import com.jmhreif.sdnjdkversions.domain.JavaVersionProjection;
 import com.jmhreif.sdnjdkversions.repositories.JavaVersionRepo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/versions")
@@ -17,14 +21,11 @@ public class JavaVersionController {
     }
 
     @GetMapping
-    public Iterable<JavaVersion> findAllVersions() { return javaVersionRepo.findAll(); }
+    public Iterable<JavaVersionProjection> findAllJavaVersionProjections() { return javaVersionRepo.findAllJavaVersionProjections(); }
 
     @GetMapping("/diffs")
     Iterable<JavaVersion> findConnectedDiffs() { return javaVersionRepo.findConnectedDiffs(); }
 
     @GetMapping("/{id}")
-    JavaVersion findById(@PathVariable("id") String id) {
-        JavaVersion javaVersion = javaVersionRepo.findById(id).get();
-        return javaVersion;
-    }
+    Optional<JavaVersion> findById(@PathVariable("id") String id) { return javaVersionRepo.findById(id); }
 }
