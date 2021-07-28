@@ -1,7 +1,6 @@
 package com.jmhreif.sdnjdkversions.domain;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public interface JavaVersionProjection {
 
@@ -9,6 +8,12 @@ public interface JavaVersionProjection {
     List<DiffProjection> getOlderVersionDiffs();
 
     interface DiffProjection {
-        String getFromVersion();
+        OlderVersionProjection getOlderJavaVersion();
+
+        interface OlderVersionProjection {
+            String getJavaVersion();
+        }
     }
+
+
 }

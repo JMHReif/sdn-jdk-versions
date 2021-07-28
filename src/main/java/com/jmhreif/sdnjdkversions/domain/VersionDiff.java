@@ -1,6 +1,5 @@
 package com.jmhreif.sdnjdkversions.domain;
 
-import com.jmhreif.sdnjdkversions.domain.Delta;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
@@ -24,6 +23,9 @@ public class VersionDiff {
 
     @Relationship("HAS_DELTA")
     private List<Module> modules;
+
+    @Relationship(value = "FROM_OLDER",direction = Relationship.Direction.INCOMING)
+    private JavaVersion olderJavaVersion;
 
     public VersionDiff(Long neoId, String fromVendor, String fromVersion, String toVendor, String toVersion) {
         this.neoId = neoId;
@@ -59,5 +61,9 @@ public class VersionDiff {
 
     public List<Module> getModules() {
         return modules;
+    }
+
+    public JavaVersion getOlderJavaVersion() {
+        return olderJavaVersion;
     }
 }
