@@ -1,6 +1,7 @@
 package com.jmhreif.sdnjdkversions.controllers;
 
 import com.jmhreif.sdnjdkversions.domain.VersionDiff;
+import com.jmhreif.sdnjdkversions.domain.VersionDiffProjection;
 import com.jmhreif.sdnjdkversions.repositories.VersionDiffRepo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,9 @@ public class VersionDiffController {
     public VersionDiffController(VersionDiffRepo versionDiffRepo) {
         this.versionDiffRepo = versionDiffRepo;
     }
+
+    @GetMapping()
+    public Iterable<VersionDiffProjection> findAllVersionDiffs() { return versionDiffRepo.findVersionDiffs(); }
 
     @GetMapping("/version")
     public Iterable<VersionDiff> findDiffsFromVersion(@RequestParam String version) { return versionDiffRepo.findVersionDiffsBy(version); }

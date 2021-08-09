@@ -11,7 +11,7 @@ public interface JavaVersionRepo extends Neo4jRepository<JavaVersion, String> {
     @Query("MATCH (v:JavaVersion)-[r:FROM_NEWER|FROM_OLDER]->(d:VersionDiff) RETURN v, collect(r), collect(d);")
     List<JavaVersion> findConnectedDiffs();
 
-    @Query("MATCH (v:JavaVersion)-[r:FROM_NEWER]->(d:VersionDiff)<-[r2:FROM_OLDER]-(v2:JavaVersion)" +
-            "RETURN v, collect(r), collect(d), collect(r2), collect(v2);")
+    @Query("MATCH (v:JavaVersion)-[r:FROM_NEWER]->(d:VersionDiff)" +
+            "RETURN v, collect(r), collect(d);")
     List<JavaVersionProjection> findAllJavaVersionProjections();
 }

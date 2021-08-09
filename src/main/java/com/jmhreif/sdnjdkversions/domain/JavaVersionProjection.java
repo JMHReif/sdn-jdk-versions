@@ -8,12 +8,6 @@ public interface JavaVersionProjection {
     List<DiffProjection> getOlderVersionDiffs();
 
     interface DiffProjection {
-        OlderVersionProjection getOlderJavaVersion();
-
-        interface OlderVersionProjection {
-            String getJavaVersion();
-        }
+        String getFromVersion();
     }
-
-
 }

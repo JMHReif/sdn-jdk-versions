@@ -24,7 +24,7 @@ public class JavaVersion {
     @Relationship("FROM_NEWER")
     private List<VersionDiff> olderVersionDiffs;
 
-    @Relationship(value = "FROM_OLDER",direction = Relationship.Direction.INCOMING)
+    @Relationship(value = "FROM_OLDER")
     private List<VersionDiff> newerVersionDiffs;
 
     public JavaVersion(String javaVersion, String name, String status, String codeName, LocalDate gaDate, LocalDate eolDate, String apiSpec) {

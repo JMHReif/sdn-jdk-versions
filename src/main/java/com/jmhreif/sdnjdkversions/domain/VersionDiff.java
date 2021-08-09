@@ -24,9 +24,6 @@ public class VersionDiff {
     @Relationship("HAS_DELTA")
     private List<Module> modules;
 
-    @Relationship(value = "FROM_OLDER",direction = Relationship.Direction.INCOMING)
-    private JavaVersion olderJavaVersion;
-
     public VersionDiff(Long neoId, String fromVendor, String fromVersion, String toVendor, String toVersion) {
         this.neoId = neoId;
         this.fromVendor = fromVendor;
@@ -61,9 +58,5 @@ public class VersionDiff {
 
     public List<Module> getModules() {
         return modules;
-    }
-
-    public JavaVersion getOlderJavaVersion() {
-        return olderJavaVersion;
     }
 }
