@@ -13,9 +13,6 @@ public class Annotation extends Delta {
     @GeneratedValue
     private final Long neoId;
 
-    @Relationship("HAS_DELTA")
-    private List<Method> methods;
-
     public Annotation(String name, String docURL, String status, Long neoId) {
         super(name, docURL, status);
         this.neoId = neoId;
@@ -25,7 +22,4 @@ public class Annotation extends Delta {
         return neoId;
     }
 
-    public List<Method> getMethods() {
-        return methods;
-    }
 }

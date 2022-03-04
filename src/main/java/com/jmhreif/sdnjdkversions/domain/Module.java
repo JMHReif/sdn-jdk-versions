@@ -13,9 +13,6 @@ public class Module extends Delta {
     @GeneratedValue
     private final Long neoId;
 
-    @Relationship("HAS_DELTA")
-    private List<Package> packages;
-
     public Module(String name, String docURL, String status, Long neoId) {
         super(name, docURL, status);
         this.neoId = neoId;
@@ -25,7 +22,4 @@ public class Module extends Delta {
         return neoId;
     }
 
-    public List<Package> getPackages() {
-        return packages;
-    }
 }
