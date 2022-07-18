@@ -13,18 +13,6 @@ public class Package extends Delta {
     @GeneratedValue
     private final Long neoId;
 
-    @Relationship("HAS_DELTA")
-    private List<Annotation> annotations;
-
-    @Relationship("HAS_DELTA")
-    private List<Class> classes;
-
-    @Relationship("HAS_DELTA")
-    private List<Enum> enums;
-
-    @Relationship("HAS_DELTA")
-    private List<Interface> interfaces;
-
     public Package(String name, String docURL, String status, Long neoId) {
         super(name, docURL, status);
         this.neoId = neoId;
@@ -34,19 +22,5 @@ public class Package extends Delta {
         return neoId;
     }
 
-    public List<Annotation> getAnnotations() {
-        return annotations;
-    }
 
-    public List<Class> getClasses() {
-        return classes;
-    }
-
-    public List<Enum> getEnums() {
-        return enums;
-    }
-
-    public List<Interface> getInterfaces() {
-        return interfaces;
-    }
 }

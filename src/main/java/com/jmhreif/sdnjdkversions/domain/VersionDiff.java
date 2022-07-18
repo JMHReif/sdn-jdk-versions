@@ -19,10 +19,7 @@ public class VersionDiff {
     private String toVersion;
 
     @Relationship("HAS_DELTA")
-    private List<Package> packages;
-
-    @Relationship("HAS_DELTA")
-    private List<Module> modules;
+    private List<Delta> deltas;
 
     @Relationship(value = "FROM_OLDER",direction = Relationship.Direction.INCOMING)
     private JavaVersion olderJavaVersion;
@@ -55,15 +52,24 @@ public class VersionDiff {
         return toVersion;
     }
 
-    public List<Package> getPackages() {
-        return packages;
-    }
-
-    public List<Module> getModules() {
-        return modules;
+    public List<Delta> getDeltas() {
+        return deltas;
     }
 
     public JavaVersion getOlderJavaVersion() {
         return olderJavaVersion;
+    }
+
+    @Override
+    public String toString() {
+        return "VersionDiff{" +
+                "neoId=" + neoId +
+                ", fromVendor='" + fromVendor + '\'' +
+                ", fromVersion='" + fromVersion + '\'' +
+                ", toVendor='" + toVendor + '\'' +
+                ", toVersion='" + toVersion + '\'' +
+                ", deltas=" + deltas +
+                ", olderJavaVersion=" + olderJavaVersion +
+                '}';
     }
 }

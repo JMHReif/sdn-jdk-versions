@@ -13,12 +13,6 @@ public class Class extends Delta {
     @GeneratedValue
     private final Long neoId;
 
-    @Relationship("HAS_DELTA")
-    private List<Field> fields;
-
-    @Relationship("HAS_DELTA")
-    private List<Method> methods;
-
     public Class(String name, String docURL, String status, Long neoId) {
         super(name, docURL, status);
         this.neoId = neoId;
@@ -28,11 +22,4 @@ public class Class extends Delta {
         return neoId;
     }
 
-    public List<Field> getFields() {
-        return fields;
-    }
-
-    public List<Method> getMethods() {
-        return methods;
-    }
 }
